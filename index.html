@@ -1,0 +1,343 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>SYSTEM RIYA | Official Page</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  padding: 25px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    ellipse at top,
+    #34300b 0%,
+    #11110c 45%,
+    #050505 100%
+  );
+  color: #f7f7f7;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 440px;
+  padding: 30px 24px 25px;
+  text-align: center;
+  background: linear-gradient(145deg, #171717, #0c0c0c);
+  border: 1px solid #37332a;
+  border-radius: 32px;
+  box-shadow: 0 20px 70px rgba(0,0,0,.65);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg, transparent, #ffe45c, #dca900, transparent
+  );
+}
+
+.top-label {
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  margin: 8px 0 24px;
+}
+
+.online-dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ffcf00;
+  box-shadow: 0 0 12px #ffcf00;
+  margin-right: 10px;
+}
+
+/* YOUR UPLOADED PHOTO */
+.profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 0 auto 25px;
+  padding: 7px;
+  border: 4px solid #e9c52e;
+  background: #171717;
+  box-shadow: 0 0 30px rgba(255,207,0,.15);
+}
+
+.profile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+h1 {
+  font-size: clamp(30px, 8vw, 39px);
+  margin-bottom: 17px;
+  letter-spacing: -1px;
+}
+
+.description {
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1.65;
+  margin: 0 auto 25px;
+  max-width: 330px;
+}
+
+.verified-badge {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid #786722;
+  border-radius: 50px;
+  color: #ffdc58;
+  background: rgba(255,208,0,.06);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 32px;
+}
+
+.download-btn {
+  width: 100%;
+  min-height: 88px;
+  padding: 20px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #111;
+  background: linear-gradient(110deg, #ffdc00, #ffb900);
+  box-shadow: 0 10px 35px rgba(255,197,0,.2);
+  font-size: clamp(19px, 5vw, 26px);
+  font-weight: 900;
+  transition: .2s;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(255,197,0,.32);
+}
+
+.download-btn:active {
+  transform: scale(.98);
+}
+
+.download-icon {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.arrow {
+  font-size: 29px;
+}
+
+.status {
+  margin: 24px 0 30px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #999;
+}
+
+.ready {
+  color: #ffdc58;
+  font-weight: bold;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #999;
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 27px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #303030;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.feature {
+  padding: 22px 5px;
+  min-height: 115px;
+  border: 1px solid #303030;
+  border-radius: 21px;
+  background: linear-gradient(145deg, #222, #181818);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.feature strong {
+  font-size: clamp(17px, 4.8vw, 23px);
+}
+
+.feature span {
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+
+.footer {
+  color: #686868;
+  font-size: 11px;
+  margin-top: 27px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 25px 16px 20px;
+  }
+
+  .profile {
+    width: 170px;
+    height: 170px;
+  }
+
+  .feature {
+    min-height: 100px;
+  }
+
+  .feature span {
+    letter-spacing: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-btn {
+    transition: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+  <div class="top-label">
+    <span class="online-dot"></span>
+    SYSTEM RIYA
+  </div>
+
+  <!-- Profile photo -->
+  <div class="profile">
+    <img
+      src="https://i.ibb.co/tpsqCQPf/0156a0c37243a21aa0103e00395a8595.jpg"
+      alt="System Riya profile"
+      loading="eager"
+    >
+  </div>
+
+  <h1>SYSTEM RIYA</h1>
+
+  <p class="description">
+    Welcome to System Riya.
+    Download the app using the button below.
+  </p>
+
+  <div class="verified-badge">
+    ★ &nbsp; SYSTEM RIYA
+  </div>
+
+  <!-- Download button with your link -->
+  <a
+    class="download-btn"
+    href="https://down.v7nexa.net/#/?invite=oTBYib"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Download Now"
+  >
+    <svg
+      class="download-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 3v12"></path>
+      <path d="m7 10 5 5 5-5"></path>
+      <path d="M5 17v4h14v-4"></path>
+    </svg>
+
+    DOWNLOAD NOW
+    <span class="arrow">→</span>
+  </a>
+
+  <div class="status">
+    Status: <span class="ready">Ready</span>
+    &nbsp;·&nbsp; Opens download link
+  </div>
+
+  <div class="separator">SYSTEM RIYA</div>
+
+  <section class="features">
+    <div class="feature">
+      <strong>24/7</strong>
+      <span>SUPPORT</span>
+    </div>
+
+    <div class="feature">
+      <strong>Easy</strong>
+      <span>ACCESS</span>
+    </div>
+
+    <div class="feature">
+      <strong>1-TAP</strong>
+      <span>DOWNLOAD</span>
+    </div>
+  </section>
+
+  <div class="footer">
+    SYSTEM RIYA &nbsp; • &nbsp; OFFICIAL PAGE
+  </div>
+
+</main>
+
+</body>
+</html>
+```
+  
